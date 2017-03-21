@@ -3,12 +3,11 @@ package aula03;
 public class Cliente {
     
     private String nome;
-    private String endereco;
+    private String sobrenome;
     private String cpf;
-    private int idade;
     
     void visualizarDados() {
-        System.out.println("Nome : " + this.nome);
+        System.out.println("Nome : " + this.nome + " " + this.sobrenome);
         System.out.println("CPF: " + this.cpf);
     }
     
@@ -25,4 +24,11 @@ public class Cliente {
         return true;
     }
     
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+    
+    public void setSobreome(String sobrenome) {
+        this.sobrenome = sobrenome;
+    }
 }

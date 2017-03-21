@@ -2,27 +2,32 @@ package aula03;
 
 public class Conta {
 
-    int numero;
+    private int numero;
     private double saldo;
-    Cliente titular;
-    private double limite; //add um limite a conta
+    private Cliente titular;
+    private static int totalDeContas;
     
-    public Conta() {
+    public Conta(String nome, String sobrenome, String cpf) {
         this.titular = new Cliente();
+        this.titular.setNome(nome);
+        this.titular.setSobreome(sobrenome);
+        this.titular.mudarCPF(cpf);
+        
+        Conta.totalDeContas = Conta.totalDeContas + 1;
+    }
+    
+    public static int getTotalDeContas() {
+        return Conta.totalDeContas;
+    }
+    
+    public void getDados() {
+        this.titular.visualizarDados();
     }
 
     void visualizarSaldo() {
         System.out.println("Saldo = " + this.saldo);
     }
     
-    public double getSaldo() {
-        return this.saldo + this.limite;
-    }
-    
-    public void setSaldo(double saldo) {
-        this.saldo = saldo;
-    }
-
     void depositar(double valor) {
         if (valor > 0) {
             this.saldo = this.saldo + valor;

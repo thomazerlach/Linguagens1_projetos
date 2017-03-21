@@ -4,10 +4,10 @@ public class Aula03 {
 
     public static void main(String[] args) {
 
-        Conta c1 = new Conta();
-        Conta minhaConta = new Conta();
+        Conta c1 = new Conta("Victor", "Xavier", "342.234.245-67");
+        Conta minhaConta = new Conta("Pedro", "Cattel", "675.054.325-75");
         
-        c1.titular.visualizarDados();
+        c1.getDados();
         
         c1.depositar(1000);
 
@@ -22,6 +22,9 @@ public class Aula03 {
 
         c1.visualizarSaldo();
         minhaConta.visualizarSaldo();
+        
+        int total = Conta.getTotalDeContas();
+        System.out.println("Total de Contas: " + total);
     }
 
 }
