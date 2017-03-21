@@ -3,11 +3,24 @@ package aula03;
 public class Conta {
 
     int numero;
-    double saldo;
+    private double saldo;
     Cliente titular;
+    private double limite; //add um limite a conta
+    
+    public Conta() {
+        this.titular = new Cliente();
+    }
 
     void visualizarSaldo() {
         System.out.println("Saldo = " + this.saldo);
+    }
+    
+    public double getSaldo() {
+        return this.saldo + this.limite;
+    }
+    
+    public void setSaldo(double saldo) {
+        this.saldo = saldo;
     }
 
     void depositar(double valor) {
