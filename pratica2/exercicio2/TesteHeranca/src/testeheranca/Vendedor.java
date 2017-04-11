@@ -9,15 +9,15 @@ package testeheranca;
  *
  * @author thomazerlach
  */
-public final class Vendedor {
-    private String nomeCompleto;
-    private String cpf;
-    private int registro;
-    private double salarioBase;
-    private static double taxaComissao = 0.03;
-    private double horaExtra;
-    private double totalVendas;
-    private GerenteDeVendas gerente;
+public class Vendedor {
+    protected String nomeCompleto;
+    protected String cpf;
+    protected int registro;
+    protected double salarioBase;
+    protected static double taxaComissao = 0.03;
+    protected double horaExtra;
+    protected double totalVendas;
+    protected GerenteDeVendas gerente;
     
     public Vendedor (String n, String c, int reg, double salario, double hora, GerenteDeVendas ger) {
         this.setNome(n);
@@ -33,7 +33,7 @@ public final class Vendedor {
         return this.nomeCompleto;
     }
     
-    public void setNome (String nomeNovo) {
+    public final void setNome (String nomeNovo) {
         this.nomeCompleto = nomeNovo;
     }
     
@@ -41,7 +41,7 @@ public final class Vendedor {
         return this.cpf;
     }
     
-    public void setCpf (String cpfNovo) {
+    public final void setCpf (String cpfNovo) {
         this.cpf = cpfNovo;
     }
     
@@ -49,7 +49,7 @@ public final class Vendedor {
         return this.registro;
     }
     
-    public void setRegistro (int registroNovo) {
+    public final void setRegistro (int registroNovo) {
         this.registro = registroNovo;
     }
     
@@ -57,7 +57,7 @@ public final class Vendedor {
         return this.horaExtra;
     }
     
-    public void setHoraExtra (double horaNova) {
+    public final void setHoraExtra (double horaNova) {
         this.horaExtra = horaNova;
     }
     
@@ -65,7 +65,7 @@ public final class Vendedor {
         return this.salarioBase;
     }
     
-    public void setSalarioBase (double salarioNovo) {
+    public final void setSalarioBase (double salarioNovo) {
         this.salarioBase = salarioNovo;
     }
     
@@ -81,7 +81,7 @@ public final class Vendedor {
         return this.gerente.getNome();
     }
     
-    public void setGerente (GerenteDeVendas gerenteNovo) {
+    public final void setGerente (GerenteDeVendas gerenteNovo) {
         this.gerente = gerenteNovo;
     }
     
@@ -119,5 +119,47 @@ public final class Vendedor {
         } else {
             return false;
         }
+    }
+
+    /**
+     * @return the nomeCompleto
+     */
+    public String getNomeCompleto() {
+        return nomeCompleto;
+    }
+
+    /**
+     * @param nomeCompleto the nomeCompleto to set
+     */
+    public void setNomeCompleto(String nomeCompleto) {
+        this.nomeCompleto = nomeCompleto;
+    }
+
+    /**
+     * @return the taxaComissao
+     */
+    public static double getTaxaComissao() {
+        return taxaComissao;
+    }
+
+    /**
+     * @param aTaxaComissao the taxaComissao to set
+     */
+    public static void setTaxaComissao(double aTaxaComissao) {
+        taxaComissao = aTaxaComissao;
+    }
+
+    /**
+     * @return the totalVendas
+     */
+    public double getTotalVendas() {
+        return totalVendas;
+    }
+
+    /**
+     * @param totalVendas the totalVendas to set
+     */
+    public void setTotalVendas(double totalVendas) {
+        this.totalVendas = totalVendas;
     }
 }
