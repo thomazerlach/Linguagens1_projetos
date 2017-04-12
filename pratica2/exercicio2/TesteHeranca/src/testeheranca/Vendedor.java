@@ -19,14 +19,12 @@ public class Vendedor {
     protected double totalVendas;
     protected GerenteDeVendas gerente;
     
-    public Vendedor (String n, String c, int reg, double salario, double hora, GerenteDeVendas ger) {
+    public Vendedor (String n, String c, int reg, double salario, double hora) {
         this.setNome(n);
         this.setCpf(c);
         this.setRegistro(reg);
         this.setSalarioBase(salario);
         this.setHoraExtra(hora);
-        this.setGerente(ger);
-        ger.incrementarVendedor();
     }
     
     public String getNome () {

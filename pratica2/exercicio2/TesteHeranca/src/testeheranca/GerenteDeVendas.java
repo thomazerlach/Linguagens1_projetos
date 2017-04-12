@@ -20,8 +20,8 @@ public class GerenteDeVendas extends Vendedor {
     private int vendedores;
     private String senha;
 
-    public GerenteDeVendas(String n, String c, int reg, double salario, double hora, GerenteDeVendas ger) {
-        super(n, c, reg, salario, hora, ger);
+    public GerenteDeVendas(String n, String c, int reg, double salario, double hora) {
+        super(n, c, reg, salario, hora);
     }
     
 //    public GerenteDeVendas (String n, String c, int reg, double salario, double hora) {
