@@ -14,6 +14,7 @@ public class Funcionario {
     protected String cpf;
     protected int registro;
     protected double salarioBase;
+    protected double totalVendas;
     
     public Funcionario (String n, String cpf, int reg, double sal) {
         this.setNome(n);
@@ -52,6 +53,24 @@ public class Funcionario {
     
     public final void setSalarioBase (double salarioNovo) {
         this.salarioBase = salarioNovo;
+    }
+    
+    public double getTotalVendas () {
+        return this.totalVendas;
+    }
+    
+    public boolean contabilizarVenda (double venda) {
+        if (venda > 0) {
+            this.totalVendas = this.totalVendas + venda;
+            Concessionaria.totalVendas = Concessionaria.totalVendas + venda;
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+    public double calcularBonus(double bIndividual) {
+        return bIndividual;
     }
     
     public void exibirResumo () {
