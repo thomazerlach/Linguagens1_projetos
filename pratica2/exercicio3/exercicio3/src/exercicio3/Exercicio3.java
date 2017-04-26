@@ -16,6 +16,14 @@ public class Exercicio3 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        
+        //perguntar n vendedores
+        
+        //perguntar n gerentes
+        
+        Concessionaria cons = new Concessionaria(0, 0)
+        
+        for //pedir vendedores e gerentes
     }
     
 }

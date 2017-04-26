@@ -14,7 +14,6 @@ public class Funcionario {
     protected String cpf;
     protected int registro;
     protected double salarioBase;
-    protected double totalVendas;
     
     public Funcionario (String n, String cpf, int reg, double sal) {
         this.setNome(n);
@@ -27,7 +26,7 @@ public class Funcionario {
         return this.nomeCompleto;
     }
     
-    public final void setNome (String nomeNovo) {
+    public void setNome (String nomeNovo) {
         this.nomeCompleto = nomeNovo;
     }
     
@@ -35,7 +34,7 @@ public class Funcionario {
         return this.cpf;
     }
     
-    public final void setCpf (String cpfNovo) {
+    public void setCpf (String cpfNovo) {
         this.cpf = cpfNovo;
     }
     
@@ -43,7 +42,7 @@ public class Funcionario {
         return this.registro;
     }
     
-    public final void setRegistro (int registroNovo) {
+    public void setRegistro (int registroNovo) {
         this.registro = registroNovo;
     }
     
@@ -51,22 +50,8 @@ public class Funcionario {
         return this.salarioBase;
     }
     
-    public final void setSalarioBase (double salarioNovo) {
+    public void setSalarioBase (double salarioNovo) {
         this.salarioBase = salarioNovo;
-    }
-    
-    public double getTotalVendas () {
-        return this.totalVendas;
-    }
-    
-    public boolean contabilizarVenda (double venda) {
-        if (venda > 0) {
-            this.totalVendas = this.totalVendas + venda;
-            Concessionaria.totalVendas = Concessionaria.totalVendas + venda;
-            return true;
-        } else {
-            return false;
-        }
     }
     
     public double calcularBonus(double bIndividual) {
