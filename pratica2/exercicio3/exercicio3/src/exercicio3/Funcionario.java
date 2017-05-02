@@ -9,7 +9,7 @@ package exercicio3;
  *
  * @author thomazerlach
  */
-public class Funcionario {
+public abstract class Funcionario {
     protected String nomeCompleto;
     protected String cpf;
     protected int registro;
@@ -54,9 +54,7 @@ public class Funcionario {
         this.salarioBase = salarioNovo;
     }
     
-    public double calcularBonus(double bIndividual) {
-        return bIndividual;
-    }
+    public abstract double calcularBonus(double bIndividual);
     
     public void exibirResumo () {
         System.out.println("Nome: " + this.nomeCompleto);
