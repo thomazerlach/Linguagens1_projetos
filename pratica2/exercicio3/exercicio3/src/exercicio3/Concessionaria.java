@@ -66,6 +66,22 @@ public class Concessionaria {
         this.taxaBonus = tx;
     }
     
+    public Vendedor getVendedor(int i) {
+        return this.vendedor[i];
+    }
+    
+    public Gerente getGerente(int i) {
+        return this.gerente[i];
+    }
+    
+    public int getNumVend (){
+        return this.nVendedor;
+    }
+    
+    public int getNumGer () {
+        return this.nGerente;
+    }
+    
 //    public void bonificacaoConcessionaria() {
 //        this.bonusIndividual = (this.totalVendas/this.totalFuncionarios)*this.taxaBonus;
 //    }
