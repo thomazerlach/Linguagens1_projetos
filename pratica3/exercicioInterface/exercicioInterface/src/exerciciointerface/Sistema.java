@@ -11,4 +11,8 @@ package exerciciointerface;
  */
 public class Sistema {
     
+    public boolean login (IAutenticavel obj) {
+        return true;
+    }
+    
 }
