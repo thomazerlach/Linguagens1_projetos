@@ -11,8 +11,8 @@ package exerciciointerface;
  */
 public class Sistema {
     
-    public boolean login (IAutenticavel obj) {
-        return true;
+    public boolean login (IAutenticavel obj, String senhaDeAcesso) {
+        return obj.autenticar(senhaDeAcesso);
     }
     
 }
