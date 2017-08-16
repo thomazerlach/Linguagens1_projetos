@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.media.*?>
+<?import javafx.scene.canvas.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="349.0" prefWidth="501.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="cadastroaluno.FXMLDocumentController">
+   <children>
+      <TabPane layoutY="28.0" prefHeight="299.0" prefWidth="501.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="28.0">
+        <tabs>
+          <Tab text="Cadastro Aluno">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="296.0" prefWidth="501.0">
+                     <children>
+                        <ImageView fx:id="imgPerfil" fitHeight="100.0" fitWidth="100.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="387.0" AnchorPane.topAnchor="14.0">
+                           <viewport>
+                              <Rectangle2D />
+                           </viewport>
+                           <image>
+                              <Image url="@DefaultUser.jpg" />
+                           </image>
+                        </ImageView>
+                        <Pane layoutX="130.0" layoutY="14.0" prefHeight="271.0" prefWidth="240.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="130.0" AnchorPane.rightAnchor="131.0" AnchorPane.topAnchor="14.0">
+                           <children>
+                              <Label layoutX="14.0" layoutY="6.0" text="Nome" />
+                              <TextField fx:id="txtNome" layoutX="14.0" layoutY="23.0" prefHeight="27.0" prefWidth="215.0" />
+                              <Label layoutX="14.0" layoutY="58.0" text="Idade" />
+                              <TextField fx:id="txtIdade" layoutX="14.0" layoutY="75.0" prefHeight="27.0" prefWidth="215.0" />
+                              <Label layoutX="14.0" layoutY="111.0" text="Endereço" />
+                              <TextField fx:id="txtEnd" layoutX="14.0" layoutY="128.0" prefWidth="215.0" />
+                              <Label layoutX="14.0" layoutY="162.0" text="RG" />
+                              <TextField fx:id="txtRg" layoutX="14.0" layoutY="179.0" prefWidth="215.0" promptText="XX.XXX.XXX-X" />
+                              <Label layoutX="14.0" layoutY="214.0" text="CPF" />
+                              <TextField fx:id="txtCpf" layoutX="14.0" layoutY="231.0" prefWidth="215.0" promptText="XXX.XXX.XXX-XX" />
+                           </children>
+                        </Pane>
+                        <Button fx:id="btnSalvar" layoutX="393.0" layoutY="248.0" mnemonicParsing="false" onAction="#salvarButtonAction" prefHeight="32.0" prefWidth="94.0" text="SALVAR" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="14.0" />
+                        <Button fx:id="btnEscolher" layoutX="14.0" layoutY="120.0" mnemonicParsing="false" onAction="#escolherButtonAction" prefHeight="27.0" prefWidth="100.0" text="Escolher..." AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="387.0" AnchorPane.topAnchor="120.0" />
+                        <Label fx:id="fileSelected" layoutX="14.0" layoutY="154.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="487.0" AnchorPane.topAnchor="154.0" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Pesquisar">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextField fx:id="txtPesquisa" layoutX="14.0" layoutY="14.0" prefHeight="27.0" prefWidth="380.0" />
+                        <Button fx:id="btnPesquisar" layoutX="402.0" layoutY="14.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="85.0" text="Pesquisar" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+      <MenuBar>
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem fx:id="btnSaveAll" mnemonicParsing="false" onAction="#SalvarNoArquivo" text="Save" />
+                  <MenuItem mnemonicParsing="false" text="Load" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </children>
+</AnchorPane>
