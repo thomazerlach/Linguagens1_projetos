@@ -16,6 +16,22 @@ public class Person {
     private String Endereco;
     private String Rg;
     private String Cpf;
+    
+    public Person(){
+        this.setNome("");
+        this.setIdade("");
+        this.setEndereco("");
+        this.setRg("");
+        this.setCpf("");
+    }
+    
+    public Person(String nome, String idade, String endereco, String rg, String cpf){
+        this.setNome(nome);
+        this.setIdade(idade);
+        this.setEndereco(endereco);
+        this.setRg(rg);
+        this.setCpf(cpf);
+    }
 
     public String getNome() {
         return Nome;
