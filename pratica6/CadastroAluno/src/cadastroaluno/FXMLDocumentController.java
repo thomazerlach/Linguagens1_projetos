@@ -214,11 +214,11 @@ public class FXMLDocumentController implements Initializable {
             errorMessage += "Endereço não é válido!\n"; 
         }
 
-        if (txtRg.getText() == null || txtRg.getText().length() == 0) {
+        if (txtRg.getText() == null || txtRg.getText().length() == 0 || !txtRg.getText().matches("^[0-9]{2}(\\.[0-9]{3}){2}-([0-9]|X)$")) {
             errorMessage += "RG não é válido!\n"; 
         } 
 
-        if (txtCpf.getText() == null || txtCpf.getText().length() == 0) {
+        if (txtCpf.getText() == null || txtCpf.getText().length() == 0 || !txtCpf.getText().matches("^([0-9]{3}\\.){2}[0-9]{3}-[0-9]{2}$")) {
             errorMessage += "CPF não é válido!\n"; 
         }
 
