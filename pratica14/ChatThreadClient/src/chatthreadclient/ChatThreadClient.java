@@ -9,16 +9,18 @@ import java.io.IOException;
 import java.io.PrintStream;
 import java.net.Socket;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 /**
  *
  * @author thomazerlach
  */
-public class ChatThreadClient {
+public class ChatThreadClient implements Runnable {
 
-    /**
-     * @param args the command line arguments
-     */
+    static Socket server;
+    static Boolean fechou = false;
+    
     public static void main(String[] args) {
         // TODO code application logic here
         String serverAddress = JOptionPane.showInputDialog(
@@ -26,30 +28,53 @@ public class ChatThreadClient {
                 + "executando o serviço de chat na porta 4699");
         
         try {
-            Socket cliente = new Socket(serverAddress, 4699);
+            server = new Socket(serverAddress, 4699);
+            
+            Thread thr_entrada = new Thread(new ChatThreadClient());
+            thr_entrada.start();
             
             try (
-                    Scanner entradaRede = new Scanner(cliente.getInputStream());
+                    //Scanner entradaRede = new Scanner(server.getInputStream());
                     Scanner teclado = new Scanner(System.in);
-                    PrintStream saidaRede = new PrintStream(cliente.getOutputStream());
+                    PrintStream saidaRede = new PrintStream(server.getOutputStream());
                 ) 
             {
-                System.out.println(entradaRede.nextLine());
+                //System.out.println(entradaRede.nextLine());
                 String msg = "";
-                while(!msg.equalsIgnoreCase("tchau!")) {
+                while(!fechou && !msg.equalsIgnoreCase("tchau!")) {
                     msg = teclado.nextLine();
                     saidaRede.println(msg);
-                    msg = entradaRede.nextLine();
-                    System.out.println(msg);
+                    //msg = entradaRede.nextLine();
+                    //System.out.println(msg);
                 }
                 System.out.println("Aplicação finalizada. Pressione ENTER para fechar o programa.");
-                teclado.nextLine();
-                cliente.close();
+                fechou = true;
+                //teclado.nextLine();
+                server.close();
             }
         } catch (IOException e) {
             System.out.println("Erro: " + e.getMessage());
         }
         System.exit(0);
+    }
+    
+    @Override
+    public void run() {
+        try (
+                Scanner entradaRede = new Scanner(server.getInputStream());
+            )
+        {
+            String msg = "";
+            while (!fechou && !msg.equalsIgnoreCase("tchau!")) {
+                    msg = entradaRede.nextLine();
+                    System.out.println("Server: " + msg);
+            }
+            System.out.println("Server fechou a conexão, pressione enter");
+            fechou = true;
+            
+        } catch (IOException ex) {
+            Logger.getLogger(ChatThreadClient.class.getName()).log(Level.SEVERE, null, ex);
+        } 
     }
     
 }
